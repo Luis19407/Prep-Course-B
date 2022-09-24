@@ -19,7 +19,7 @@ function operacionMatematica(n1, n2, cb) {
   //Vamos a recibir una función que realiza una operación matemática como callback junto con dos números.
   //Devolver el callback pasándole como argumentos los números recibidos.
   //Tu código:
-  return cb(n1 + n2);
+  return cb(n1, n2);
 }
 
 function sumarArray(numeros, cb) {
@@ -27,7 +27,12 @@ function sumarArray(numeros, cb) {
   // Pasa el resultado a `cb`
   // No es necesario devolver nada
   //Tu código: 
-  cb(numeros.reduce((acc, element) => acc + element))
+  /*cb(numeros.reduce((acc, element) => acc + element))*/
+  var total = 0;
+  for(var i = 0; i < numeros.length; i++){
+    total = total + numeros[i]
+  }
+     cb(total)
 }
 
 function forEach(array, cb) {
@@ -54,9 +59,16 @@ function filter(array) {
   //Filtrar todos los elementos del array que comiencen con la letra "a".
   //Devolver un nuevo array con los elementos que cumplen la condición
   //Tu código:
-  let filtro = array.filter(letra => letra[0] == "a" );
-  return filtro
-}
+  var nuevoArray = []
+  for(var iterador of array) {
+    if(iterador[0] === "a")
+      nuevoArray.push(iterador)
+  } 
+       return nuevoArray;
+  /*let filtro = array.filter(letra => letra[0] == "a" );
+  return filtro*/
+
+}  // metodo filter, charAt(), startsWith()
 
 // No modificar nada debajo de esta línea
 // --------------------------------
